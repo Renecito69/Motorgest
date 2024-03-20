@@ -15,14 +15,14 @@ class tallerController extends Controller
 
     public function index()
     {
-        $talleres = taller::all();
-        $vehiculos = vehiculo::all();
+        $talleres = Taller::all();
+        $vehiculos = Vehiculo::all();
         return view('taller.index', compact('talleres','vehiculos'));
     }
 
     public function create()
     {
-        $talleres = taller::all();
+        $talleres = Taller::all();
         return view('taller.create', compact('talleres'));
     }
 
@@ -47,24 +47,24 @@ class tallerController extends Controller
 
     public function show(string $id)
     {
-        $talleres = taller::find($id);
+        $talleres = Taller::find($id);
         return view('taller.detalle', compact('talleres'));
     }
 
     public function edit($id)
     {
-        $taller = Taller::findOrFail($id);
-        return view('taller.edit', compact('taller'));
+        $talleres = Taller::findOrFail($id);
+        return view('taller.edit', compact('talleres'));
     }
     
     
 
     public function update(Request $request, $id)
     {
-        $talleres = taller::find($id);
+        $talleres = Taller::find($id);
         $talleres->nombre_taller = $request->nombre_taller;
         $talleres->runt = $request->runt;
-        $talleres->camara_comercio = $request->camara;
+        $talleres->camara_comercio = $request->camara_comercio;
         $talleres->direccion = $request->direccion;
         $talleres->tipo_taller = $request->tipo_taller;
         
@@ -81,7 +81,7 @@ class tallerController extends Controller
 
     public function destroy(string $id)
     {
-        $talleres = taller::find($id);
+        $talleres = Taller::find($id);
         if (!$talleres) {
             return redirect('taller')->with('error', 'Vehículo no encontrado.');
         }

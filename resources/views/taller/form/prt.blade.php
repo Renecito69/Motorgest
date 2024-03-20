@@ -5,7 +5,7 @@
     <div class="col-md-12">
         <section class="panel">
             <div class="panel-body">
-            @if ( empty ( $talleres ) )    
+            @if ( empty ( $talleres->id) )    
             <form method="POST" action="{{ route('taller.store') }}">
                     @csrf
 
@@ -60,35 +60,35 @@
                         <label for="nombre_taller" class="negrita">Nombre taller:</label>
                         <div>
                             <input class="form-control" placeholder="Nombre del taller" required="required" name="nombre_taller"
-                                type="text" id="nombre_taller" value="{{ $talleres->nombre_taller }}">
+                                type="text" id="nombre_taller" value="{{ !empty($talleres->nombre_taller) ? $talleres->nombre_taller : '' }}">
                         </div>
                     </div>
                     <div class="mb-3">
                         <label for="runt" class="negrita">Runt:</label>
                         <div>
                             <input class="form-control" placeholder="Número Runt" required="required" name="runt" type="text"
-                                id="runt" value="{{ $talleres->runt }}">
+                            id="runt" value="{{ !empty($talleres->runt) ? $talleres->runt : '' }}">
                         </div>
                     </div> 
                     <div class="mb-3">
                         <label for="camara_comercio" class="negrita">Cámara de Comercio:</label>
                         <div>
                             <input class="form-control" placeholder="Número Cámara de Comercio" required="required" name="camara_comercio" type="text"
-                                id="camara_comercio" value="{{ $talleres->camara_comercio }}">
+                            id="camara_comercio" value="{{ !empty($talleres->camara_comercio) ? $talleres->camara_comercio : '' }}">
                         </div>
                     </div>
                     <div class="mb-3">
                         <label for="direccion" class="negrita">Dirección:</label>
                         <div>
                             <input class="form-control" placeholder="Dirección del taller" required="required" name="direccion" type="text"
-                                id="direccion" value="{{ $talleres->direccion }}">
+                            id="direccion" value="{{ !empty($talleres->direccion) ? $talleres->direccion : '' }}">
                         </div>
                     </div>
                     <div class="mb-3">
                         <label for="tipo_taller" class="negrita">Tipo de Taller:</label>
                         <div>
                             <input class="form-control" placeholder="Tipo de taller" required="required" name="tipo_taller" type="text"
-                                id="tipo_taller" value="{{ $talleres->tipo_taller }}">
+                            id="tipo_taller" value="{{ !empty($talleres->tipo_taller) ? $talleres->tipo_taller : '' }}">
                         </div>
                     </div>
 
