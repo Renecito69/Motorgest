@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Taller;
+use App\Models\Vehiculo;
 use Redirect;
 use Storage;
 use DateTime;
@@ -14,8 +15,9 @@ class tallerController extends Controller
 
     public function index()
     {
-        $talleres = taller::all(); 
-        return view('taller.index', compact('talleres'));
+        $talleres = taller::all();
+        $vehiculos = vehiculo::all();
+        return view('taller.index', compact('talleres','vehiculos'));
     }
 
     public function create()
@@ -38,7 +40,7 @@ class tallerController extends Controller
     
         $talleres->save();
     
-        return redirect('taller')->with('message', 'Vehículo guardado satisfactoriamente.');
+        return redirect('taller')->with('message', 'Taller guardado satisfactoriamente.');
     }
     
 
