@@ -1,5 +1,5 @@
 @extends('layouts.main')
-@section('content1')
+@section('content_vehiculo')
 <div class="panel-body">
     <div class="clearfix">
         <p class="h6">Placa:</p>

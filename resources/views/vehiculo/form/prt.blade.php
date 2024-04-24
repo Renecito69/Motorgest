@@ -1,6 +1,6 @@
 @extends('layouts.main')
 
-@section('content1')
+@section('content_vehiculo')
 <div class="row">
     <div class="col-md-12">
         <section class="panel">
@@ -33,28 +33,28 @@
                     <div class="mb-3">
                         <label for="modelo" class="negrita">Modelo:</label>
                         <div>
-                            <input class="form-control" placeholder="2022" required="required" name="modelo" type="text"
+                            <input class="form-control" placeholder="2022" required="required" name="modelo" type="int"
                                 id="modelo">
                         </div>
                     </div>
                     <div class="mb-3">
                         <label for="cc" class="negrita">CC:</label>
                         <div>
-                            <input class="form-control" placeholder="1500" required="required" name="cc" type="text"
+                            <input class="form-control" placeholder="1500" required="required" name="cc" type="int"
                                 id="cc" value="{{ !empty($vehiculos->cc) ? $vehiculos->cc : '' }}">
                         </div>
                     </div>
                     <div class="mb-3">
                         <label for="año" class="negrita">Año:</label>
                         <div>
-                            <input class="form-control" placeholder="2020" required="required" name="año" type="text"
+                            <input class="form-control" placeholder="2020" required="required" name="año" type="int"
                                 id="año" value="{{ !empty($vehiculos->año) ? $vehiculos->año : '' }}">
                         </div>
                     </div>
                     <div class="mb-3">
                         <label for="kilometraje" class="negrita">Kilometraje:</label>
                         <div>
-                            <input class="form-control" placeholder="10000" required="required" name="kilometraje" type="text"
+                            <input class="form-control" placeholder="10000" required="required" name="kilometraje" type="int"
                                 id="kilometraje" value="{{ !empty($vehiculos->kilometraje) ? $vehiculos->kilometraje : '' }}">
                         </div>
                     </div>
@@ -68,7 +68,7 @@
                     <div class="mb-3">
                         <label for="ultimo_mantenimiento" class="negrita">Último Mantenimiento:</label>
                         <div>
-                            <input class="form-control" placeholder="2022-03-31" required="required" name="ultimo_mantenimiento" type="text"
+                            <input class="form-control" placeholder="2022-03-31" required="required" name="ultimo_mantenimiento" type="date"
                                 id="ultimo_mantenimiento" value="{{ !empty($vehiculos->ultimo_mantenimiento) ? $vehiculos->ultimo_mantenimiento : '' }}">
                         </div>
                     </div>
@@ -113,28 +113,28 @@
                     <div class="mb-3">
                         <label for="modelo" class="negrita">Modelo:</label>
                         <div>
-                            <input class="form-control" placeholder="2022" required="required" name="modelo" type="text"
+                            <input class="form-control" placeholder="2022" required="required" name="modelo" type="int"
                                 id="modelo" value="{{ !empty($vehiculos->modelo) ? $vehiculos->modelo : '' }}">
                         </div>
                     </div>
                     <div class="mb-3">
                         <label for="cc" class="negrita">CC:</label>
                         <div>
-                            <input class="form-control" placeholder="1500" required="required" name="cc" type="text"
+                            <input class="form-control" placeholder="1500" required="required" name="cc" type="int"
                                 id="cc" value="{{ !empty($vehiculos->cc) ? $vehiculos->cc : '' }}">
                         </div>
                     </div>
                     <div class="mb-3">
                         <label for="año" class="negrita">Año:</label>
                         <div>
-                            <input class="form-control" placeholder="2020" required="required" name="año" type="text"
+                            <input class="form-control" placeholder="2020" required="required" name="año" type="int"
                                 id="año" value="{{ !empty($vehiculos->año) ? $vehiculos->año : '' }}">
                         </div>
                     </div>
                     <div class="mb-3">
                         <label for="kilometraje" class="negrita">Kilometraje:</label>
                         <div>
-                            <input class="form-control" placeholder="10000" required="required" name="kilometraje" type="text"
+                            <input class="form-control" placeholder="10000" required="required" name="kilometraje" type="int"
                                 id="kilometraje" value="{{ !empty($vehiculos->kilometraje) ? $vehiculos->kilometraje : '' }}">
                         </div>
                     </div>
@@ -148,7 +148,7 @@
                     <div class="mb-3">
                         <label for="ultimo_mantenimiento" class="negrita">Último Mantenimiento:</label>
                         <div>
-                            <input class="form-control" placeholder="2022-03-31" required="required" name="ultimo_mantenimiento" type="text"
+                            <input class="form-control" placeholder="2022-03-31" required="required" name="ultimo_mantenimiento" type="date"
                                 id="ultimo_mantenimiento" value="{{ !empty($vehiculos->ultimo_mantenimiento) ? $vehiculos->ultimo_mantenimiento : '' }}">
                         </div>
                     </div>

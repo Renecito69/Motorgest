@@ -1,7 +1,12 @@
 @extends('layouts.main')
-@section('content1')
+@section('content_vehiculo')
 <a href="{{ route('vehiculo.create') }}" class="btn btn-success mt-4 ml-3 mb-4">
     Agregar </a>
+
+<a href="{{url('imprimirVehiculos')}}" class="pull-right">
+<button class="btn btn-success">Imprimir Pdf</button> </a>    
+
+
 <table class="table table-striped table-bordered table-hover">
     <thead>
         <tr>

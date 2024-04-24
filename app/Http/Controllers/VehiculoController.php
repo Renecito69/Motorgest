@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Http\Requests\VehiculoFormRequest;
 use App\Models\Vehiculo;
 use Redirect;
 use Storage;
@@ -12,6 +12,11 @@ use Session;
 class VehiculoController extends Controller
 {
 
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index()
     {
         $vehiculos = Vehiculo::all(); 
@@ -20,11 +25,16 @@ class VehiculoController extends Controller
 
     public function create()
     {
+
+        //Nuevooooooooooooooooooooooooooo
+        //$request->user()->authorizeRoles('admin');
+        //Nuevooooooooooooooooooooooooo
+
         $vehiculos = Vehiculo::all();
         return view('vehiculo.create', compact('vehiculos'));
     }
 
-    public function store(Request $request)
+    public function store(VehiculoFormRequest $request)
     {
         $vehiculos = new Vehiculo;
 
@@ -59,7 +69,7 @@ class VehiculoController extends Controller
     }
     
 
-    public function update(Request $request, $id)
+    public function update(VehiculoFormRequest $request, $id)
     {
         $vehiculos = Vehiculo::find($id);
         $vehiculos->placa = $request->placa;

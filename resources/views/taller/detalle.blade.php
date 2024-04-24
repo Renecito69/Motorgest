@@ -1,5 +1,5 @@
-@extends('layouts.main')
-@section('content2')
+@extends('layouts.maint')
+@section('content_taller')
 <div class="panel-body">
     <div class="clearfix">
         <p class="h6">Nombre Taller:</p>

@@ -2,23 +2,33 @@
 
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth.login');
 });
 
+Route::resource('motorgest', 'App\Http\Controllers\HomeController');
 Route::resource('vehiculo', 'App\Http\Controllers\VehiculoController');
 Route::resource('taller', 'App\Http\Controllers\TallerController');
 
+Route::middleware(['auth', 'role:admin'])->group(function () {
+    Route::resource('usuario', 'App\Http\Controllers\usuarioController');
+   
+   });
+
+Route::resource('mantenimiento', 'App\Http\Controllers\mantenimientoController');
+Route::get('imprimirVehiculos','App\http\Controllers\PdfController@imprimirVehiculos')->name('imprimirVehiculos');
 
 
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

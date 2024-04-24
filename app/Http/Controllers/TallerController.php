@@ -2,9 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Http\Requests\TallerFormRequest;
 use App\Models\Taller;
-use App\Models\Vehiculo;
 use Redirect;
 use Storage;
 use DateTime;
@@ -13,11 +12,15 @@ use Session;
 class tallerController extends Controller
 {
 
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index()
     {
-        $talleres = Taller::all();
-        $vehiculos = Vehiculo::all();
-        return view('taller.index', compact('talleres','vehiculos'));
+        $talleres = Taller::all();  
+        return view('taller.index', compact('talleres'));
     }
 
     public function create()
@@ -26,7 +29,7 @@ class tallerController extends Controller
         return view('taller.create', compact('talleres'));
     }
 
-    public function store(Request $request)
+    public function store(TallerFormRequest $request)
     {
         $talleres = new Taller;
     
@@ -59,7 +62,7 @@ class tallerController extends Controller
     
     
 
-    public function update(Request $request, $id)
+    public function update(TallerFormRequest $request, $id)
     {
         $talleres = Taller::find($id);
         $talleres->nombre_taller = $request->nombre_taller;
@@ -83,10 +86,10 @@ class tallerController extends Controller
     {
         $talleres = Taller::find($id);
         if (!$talleres) {
-            return redirect('taller')->with('error', 'Vehículo no encontrado.');
+            return redirect('taller')->with('error', 'Taller no encontrado.');
         }
         $talleres->delete();
 
-        return redirect('taller')->with('message', 'Vehículo eliminado satisfactoriamente.');
+        return redirect('taller')->with('message', 'Taller eliminado satisfactoriamente.');
     }
 }
