@@ -1,4 +1,4 @@
-@extends('layouts.main')
+@extends('layouts.mainv')
 
 @section('content_vehiculo')
 <div class="row">
