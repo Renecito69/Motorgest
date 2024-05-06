@@ -51,10 +51,10 @@ class MantenimientoController extends Controller
     {
         $mantenimiento = Mantenimiento::find($id);
         if (!$mantenimiento) {
-            return redirect('mantenimiento')->with('error', 'Vehículo no encontrado.');
+            return redirect('mantenimiento')->with('error', 'Mantenimiento no encontrado.');
         }
         $vehiculos->delete();
 
-        return redirect('mantenimiento')->with('message', 'Vehículo eliminado satisfactoriamente.');
+        return redirect('mantenimiento')->with('message', 'Mantenimiento eliminado satisfactoriamente.');
     }
 }

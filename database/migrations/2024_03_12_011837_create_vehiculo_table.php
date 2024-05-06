@@ -14,7 +14,7 @@ return new class extends Migration
     {
         Schema::create('vehiculos', function (Blueprint $table) {
             $table->id();
-            $table->unsignedInteger('id_usuario')->nullable;//ID DEL USUARIO (CAMPO NUEVO)
+            $table->unsignedBigInteger('id_usuario')->nullable;//ID DEL USUARIO (CAMPO NUEVO)
             $table->string('placa', 30);
             $table->string('marca', 30);
             $table->string('color', 30);
