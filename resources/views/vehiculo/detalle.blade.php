@@ -1,27 +1,36 @@
 @extends('layouts.mainv')
 @section('content_vehiculo')
+
 <div class="panel-body">
-    <div class="clearfix">
-        <p class="h6">Placa:</p>
-        <p class="h4 mb-3">{{ $vehiculos->placa }}</p>
-        <p class="h6">Marca:</p>
-        <p class="h4 mb-3">{{ $vehiculos->marca }}</p>
-        <p class="h6">Color:</p>
-        <p class="h4 mb-3">{{ $vehiculos->color }}</p>
-        <p class="h6">Modelo:</p>
-        <p class="h4 mb-3">{{ $vehiculos->modelo }}</p>
-        <p class="h6">CC:</p>
-        <p class="h4 mb-3">{{ $vehiculos->cc }}</p>
-        <p class="h6">Año:</p>
-        <p class="h4 mb-3">{{ $vehiculos->año }}</p>
-        <p class="h6">Kilometraje:</p>
-        <p class="h4 mb-3">{{ $vehiculos->kilometraje }}</p>
-        <p class="h6">Tipo de Combustible:</p>
-        <p class="h4 mb-3">{{ $vehiculos->tipo_combustible }}</p>
-        <p class="h6">Último Mantenimiento:</p>
-        <p class="h4 mb-3">{{ $vehiculos->ultimo_mantenimiento }}</p>
-        <p class="h6">Tipo de Vehículo:</p>
-        <p class="h4 mb-3">{{ $vehiculos->tipo_vehiculo }}</p>
+    <div class="row">
+        <div class="col-md-6">
+            <p class="h6 text-uppercase text-primary font-weight-bold">Placa:</p>
+            <p class="h5 mb-3 text-justify">{{ $vehiculos->placa }}</p>
+            <p class="h6 text-uppercase text-primary font-weight-bold">Marca:</p>
+            <p class="h5 mb-3 text-justify">{{ $vehiculos->marca }}</p>
+            <p class="h6 text-uppercase text-primary font-weight-bold">Color:</p>
+            <p class="h5 mb-3 text-justify">{{ $vehiculos->color }}</p>
+        </div>
+        <div class="col-md-6">
+            <p class="h6 text-uppercase text-primary font-weight-bold">Modelo:</p>
+            <p class="h5 mb-3 text-justify">{{ $vehiculos->modelo }}</p>
+            <p class="h6 text-uppercase text-primary font-weight-bold">CC:</p>
+            <p class="h5 mb-3 text-justify">{{ $vehiculos->cc }}</p>
+            <p class="h6 text-uppercase text-primary font-weight-bold">Año:</p>
+            <p class="h5 mb-3 text-justify">{{ $vehiculos->año }}</p>
+        </div>
+        <div class="col-md-6">
+            <p class="h6 text-uppercase text-primary font-weight-bold">Kilometraje:</p>
+            <p class="h5 mb-3 text-justify">{{ $vehiculos->kilometraje }}</p>
+            <p class="h6 text-uppercase text-primary font-weight-bold">Tipo de Combustible:</p>
+            <p class="h5 mb-3 text-justify">{{ $vehiculos->tipo_combustible }}</p>
+        </div>
+        <div class="col-md-6">
+            <p class="h6 text-uppercase text-primary font-weight-bold">Último Mantenimiento:</p>
+            <p class="h5 mb-3 text-justify">{{ $vehiculos->ultimo_mantenimiento }}</p>
+            <p class="h6 text-uppercase text-primary font-weight-bold">Tipo de Vehículo:</p>
+            <p class="h5 mb-3 text-justify">{{ $vehiculos->tipo_vehiculo }}</p>
+        </div>
     </div>
 </div>
 @endsection
