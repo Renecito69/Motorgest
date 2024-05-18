@@ -8,7 +8,7 @@
     <div class="form-floating mb-3">
         <input id="name" type="name" class="form-control @error('name') is-invalid @enderror" name="name"
             value="{{ old('name') }}" required autocomplete="name">
-        <label for="floatingInput">Nombre</label>
+        <label for="floatingInput">Digitar Nombre De Usuario</label>
         @error('name')
         <span class="invalid-feedback" role="alert">
             <strong>{{ $message }}</strong>
@@ -21,7 +21,7 @@
     <div class="form-floating mb-3">
         <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email"
             value="{{ old('email') }}" required autocomplete="email">
-        <label for="floatingInput">Agregar Email</label>
+        <label for="floatingInput">Digitar Email</label>
         @error('email')
         <span class="invalid-feedback" role="alert">
             <strong>{{ $message }}</strong>
@@ -33,7 +33,7 @@
     <div class="form-floating mb-3">
         <input id="password" type="password" class="form-control @error('password') is-invalid @enderror"
             name="password" required autocomplete="new-password">
-        <label for="floatingPassword">Contraseña</label>
+        <label for="floatingPassword">Ingresar Contraseña</label>
         @error('password')
         <span class="invalid-feedback" role="alert">
             <strong>{{ $message }}</strong>
@@ -50,7 +50,7 @@
 
     {{-- Avatar --}}
     <div class="mb-3">
-        <label for="avatar" class="form-label">Avatar</label>
+        <label for="avatar" class="form-label">Ingresar Avatar</label>
         <input type="file" class="form-control" id="avatar" name="avatar">
     </div>
 
@@ -75,7 +75,7 @@
 
     <div class="row mb-0">
 
-        <button type="submit" class="btn btn-primary py-3 w-100 mb-4">Sign Up</button>
+        <button type="submit" class="btn btn-primary py-3 w-100 mb-4">Registrarse</button>
 
     </div>
 

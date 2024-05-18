@@ -46,7 +46,7 @@
         <div class="sidebar pe-4 pb-3">
             <nav class="navbar bg-primary navbar-dark">
                 <a href="index.html" class="navbar-brand mx-4 mb-3">
-                    <h3 class="text-primary"><i class="fa fa-user-edit me-2"></i>Motorgest</h3>
+                    <h3 class="text-primary">Motorgest</h3>
                 </a>
                 <div class="d-flex align-items-center ms-4 mb-4">
                     <div class="position-relative">
@@ -71,7 +71,6 @@
                             <a href="{{url('vehiculo')}}" class="dropdown-item">Vehiculos</a>
                             <a href="{{url('taller')}}" class="dropdown-item">Talleres</a>
                             <a href="{{url('mantenimiento')}}" class="dropdown-item">Mantenimiento</a>
-                            <a href="{{url('cita')}}" class="dropdown-item">cita</a>
                         </div>
                     
                         <a href="widget.html" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Widgets</a>
@@ -97,7 +96,7 @@
                     <i class="fa fa-bars"></i>
                 </a>
                 <form class="d-none d-md-flex ms-4">
-                    <input class="form-control bg-dark border-0" type="search" placeholder="Buscar">
+                    <input class="form-control border-0" type="search" placeholder="Buscar">
                 </form>
                 <div class="navbar-nav align-items-center ms-auto" >
                     <div class="nav-item dropdown">
@@ -208,10 +207,7 @@
             <!-- Recent Sales Start -->
             <div class="container-fluid pt-4 px-4">
                 <div class="bg-secondary text-center rounded p-4">
-                    <div class="d-flex align-items-center justify-content-between mb-4">
-                        <h6 class="mb-0">Vehiculo</h6>
-                        <a href=""></a>
-                    </div>
+
                     @if(Session::has('message'))
                             <div class="alert alert-primary" role="alert">
                                 {{ Session::get('message') }}
@@ -219,6 +215,18 @@
                         @endif
 
                        @yield('content_vehiculo')
+
+                       <div class="d-flex align-items-center justify-content-between mb-4">
+                        <h6 class="mb-0"></h6>
+                        <a href=""></a>
+                    </div>
+                       @if(Session::has('message'))
+                            <div class="alert alert-primary" role="alert">
+                                {{ Session::get('message') }}
+                            </div>
+                        @endif
+
+                       @yield('content_cita')
             </div>
             <!-- Recent Sales End -->
 

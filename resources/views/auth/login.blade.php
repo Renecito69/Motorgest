@@ -8,7 +8,7 @@
     <div class="form-floating mb-3">
         <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email"
             value="{{ old('email') }}" required autocomplete="email" autofocus>
-        <label for="floatingInput">Email address</label>
+        <label for="floatingInput">Ingresar Email</label>
 
 
         @error('email')
@@ -22,7 +22,7 @@
     <div class="form-floating mb-4">
         <input id="password" type="password" class="form-control @error('password') is-invalid @enderror"
             name="password" required autocomplete="current-password">
-        <label for="floatingPassword">Password</label>
+        <label for="floatingPassword">Ingresar Contraseña</label>
 
         @error('password')
         <span class="invalid-feedback" role="alert">

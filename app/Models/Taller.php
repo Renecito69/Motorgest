@@ -11,5 +11,5 @@ class Taller extends Model
 
     protected $table = 'talleres';
 
-    protected $fillable = ['nombre_taller','runt','camara_comercio','direccion','tipo_taller'];
+    protected $fillable = ['nombre_taller','runt','camara_comercio','direccion','tipo_taller_id'];
 }

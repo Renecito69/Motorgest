@@ -10,6 +10,10 @@ Route::get('/', function () {
 Route::resource('motorgest', 'App\Http\Controllers\HomeController');
 Route::resource('vehiculo', 'App\Http\Controllers\VehiculoController');
 Route::resource('taller', 'App\Http\Controllers\TallerController');
+Route::resource('cita', 'App\Http\Controllers\CitaController');
+
+Route::get('/obtenerTalleresPorTipo', 
+'App\Http\Controllers\CitaController@buscarTaller');
 
 Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::resource('usuario', 'App\Http\Controllers\usuarioController');

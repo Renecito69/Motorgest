@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\VehiculoFormRequest;
 use App\Models\Vehiculo;
 use Redirect;
@@ -19,9 +20,15 @@ class VehiculoController extends Controller
 
     public function index()
     {
-        $vehiculos = Vehiculo::all(); 
+        // Obtener el ID del usuario autenticado
+        $id = Auth::id();
+    
+        // Obtener los vehículos del usuario actual
+        $vehiculos = Vehiculo::where('id_usuario', $id)->get();
+    
         return view('vehiculo.index', compact('vehiculos'));
     }
+    
 
     public function create()
     {
@@ -37,7 +44,7 @@ class VehiculoController extends Controller
     public function store(VehiculoFormRequest $request)
     {
         $vehiculos = new Vehiculo;
-
+        $vehiculos->id_usuario = Auth::id();
         $vehiculos->placa = $request->placa;
         $vehiculos->marca = $request->marca;
         $vehiculos->color = $request->color;
@@ -72,6 +79,7 @@ class VehiculoController extends Controller
     public function update(VehiculoFormRequest $request, $id)
     {
         $vehiculos = Vehiculo::find($id);
+        $vehiculos->id_usuario = Auth::id();
         $vehiculos->placa = $request->placa;
         $vehiculos->marca = $request->marca;
         $vehiculos->color = $request->color;
