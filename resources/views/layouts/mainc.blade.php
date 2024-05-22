@@ -59,6 +59,7 @@
                         <span>{{ $role->name }}</span>
                         @endforeach
                     </div>
+
                 </div>
                 <div class="navbar-nav w-100">
                     <a href="index.html" class="nav-item nav-link active"><i class="fa fa-tachometer-alt me-2"></i>Inicio</a>
@@ -205,29 +206,26 @@
 
 
             <!-- Recent Sales Start -->
-            <div class="container-fluid pt-4 px-4">
-                <div class="bg-secondary text-center rounded p-4">
+    <div class="container-fluid pt-4 px-4">
+        <div class="bg-secondary text-center rounded p-4">
 
-                    @if(Session::has('message'))
-                            <div class="alert alert-primary" role="alert">
-                                {{ Session::get('message') }}
-                            </div>
-                        @endif
+            @if(Session::has('message'))
+                <div class="alert alert-primary" role="alert">
+                    {{ Session::get('message') }}
+                </div>
+            @endif
 
-                       @yield('content_vehiculo')
+            @yield('content_vehiculo')
 
-                       <div class="d-flex align-items-center justify-content-between mb-4">
-                        <h6 class="mb-0"></h6>
-                        <a href=""></a>
-                    </div>
-                       @if(Session::has('message'))
-                            <div class="alert alert-primary" role="alert">
-                                {{ Session::get('message') }}
-                            </div>
-                        @endif
-
-                       @yield('content_cita')
+            <div class="d-flex align-items-center justify-content-between mb-4">
+                <h6 class="mb-0"></h6>
+                <a href=""></a>
             </div>
+
+            @yield('content_cita')
+
+        </div>
+    </div>
             <!-- Recent Sales End -->
 
 

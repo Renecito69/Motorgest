@@ -15,6 +15,9 @@ Route::resource('cita', 'App\Http\Controllers\CitaController');
 Route::get('/obtenerTalleresPorTipo', 
 'App\Http\Controllers\CitaController@buscarTaller');
 
+Route::get('/validarFecha', 
+'App\Http\Controllers\CitaController@validarFecha');
+
 Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::resource('usuario', 'App\Http\Controllers\usuarioController');
    

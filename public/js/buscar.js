@@ -11,12 +11,19 @@ function buscarTaller() {
 
         // Si la respuesta es satisfactoria, mostrar los datos en el formulario
         var data = JSON.parse(this.responseText);
+       console.log(data);
         mensajeError.classList.add('d-none');
         mensajeError.classList.remove('d-block');
 
-        document.getElementById("talleres").value = data.nombre_taller;
+        var select = document.getElementById('talleres'); 
+        select.options.length=0;
+        data.forEach(function(opcion) {
+            var option = document.createElement('option');
+            option.value = opcion.id;
+            option.text = opcion.nombre_taller;
+            select.appendChild(option);
+        });
 
-        console.log(data);
        // document.getElementById("talleres_nombre_taller").value = data.nombre;
         } 
         else if (this.readyState == 4 && this.status == 404){

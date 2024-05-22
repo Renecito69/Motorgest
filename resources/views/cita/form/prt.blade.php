@@ -1,8 +1,7 @@
-@extends('layouts.mainc')
+@extends('layouts.main')
 
 @section('content_cita')
-<div class="alert alert-danger mt-3 d-none" id="mensaje-error"
-role="alert"></div>
+<div class="alert alert-danger mt-3 d-none" id="mensaje-error" role="alert"></div>
 <div class="row">
     <div class="col-md-12">
         <section class="panel">
@@ -14,8 +13,8 @@ role="alert"></div>
                     <div class="mb-3">
                         <label for="nombre" class="negrita">Nombre:</label>
                         <div>
-                            <input class="form-control" placeholder="Nombre" 
-                                name="nombre" required="required" type="text" id="nombre">
+                            <input class="form-control" placeholder="Nombres" name="nombre" required="required"
+                                type="text" id="nombre">
                         </div>
                     </div>
                     <div class="mb-3">
@@ -35,7 +34,8 @@ role="alert"></div>
                     </div>
                     <div class="mb-3">
                         <label for="tipo_taller" class="negrita">Tipo de Taller:</label>
-                        <select class="form-control" required="required" name="tipo_taller" id="tipo_taller" data-livesearch="true" onchange="buscarTaller()">
+                        <select class="form-control" required="required" name="tipo_taller" id="tipo_taller"
+                            data-livesearch="true" onchange="buscarTaller()">
 
                             <option value="" disabled selected>Seleccione el Tipo de taller</option>
                             @foreach($tipo_taller as $tip_t)
@@ -51,11 +51,10 @@ role="alert"></div>
                         </div>
                     </div>
                     <div class="mb-3">
-                        <label for="talleres" class="negrita">Taller:</label>
-                       
-                        <select class="form-control" required="required" name="talleres" id="talleres">
+                        <label for="taller" class="negrita">Taller:</label>
+                        <select class="form-control" required="required" name="taller" id="talleres"
+                            data-livesearch="true">
                             <option value="" disabled selected>Seleccione el taller</option>
-                            <option value="">Mantenimiento</option>
                         </select>
                     </div>
 
@@ -64,6 +63,7 @@ role="alert"></div>
                     <br><br>
                 </form>
                 <script src="{{ asset('js/buscar.js') }}"></script>
+                <script src="{{ asset('js/validarFecha.js') }}"></script>
 
                 @else
                 <form method="POST" action="{{ route('cita.update', $citas->id) }}">
@@ -75,75 +75,55 @@ role="alert"></div>
                     <div class="mb-3">
                         <label for="nombre" class="negrita">Nombre:</label>
                         <div>
-                            <input class="form-control" placeholder="Nombre" required="required"
-                                name="nombre" type="text" id="nombre"
-                                value="{{ !empty($citas->nombre) ? $citas->nombre : '' }}">
+                            <input class="form-control" placeholder="Nombre" required="required" name="nombre"
+                                type="text" id="nombre" value="{{ $citas->nombre }}">
                         </div>
                     </div>
                     <div class="mb-3">
-                        <label for="runt" class="negrita">placa:</label>
+                        <label for="runt" class="negrita">Placa:</label>
                         <div>
-                            <input class="form-control" placeholder="Placa" required="required" name="placa"
-                                type="text" id="placa" value="{{ !empty($citas->placa) ? $citas->placa : '' }}">
+                            <input class="form-control" placeholder="Placa" required="required" name="placa" type="text"
+                                id="placa" value="{{ $citas->placa }}">
                         </div>
                     </div>
 
                     <div class="mb-3">
                         <label for="tipo_vehiculo" class="negrita">Tipo de Vehiculo:</label>
                         <select class="form-control" required="required" name="tipo_vehiculo" id="tipo_vehiculo">
-                            <option value="Moto" {{ $citas->tipo_vehiculo == 'Moto' ? 'selected' : '' }}>
-                                Moto
-                            </option>
-                            <option value="Carro" {{ $citas->tipo_vehiculo == 'carro' ? 'selected' : '' }}>Carro
-                            </option>
+                            <option value="Moto" {{ $citas->tipo_vehiculo == 'Moto' ? 'selected' : '' }}>Moto</option>
+                            <option value="Carro" {{ $citas->tipo_vehiculo == 'Carro' ? 'selected' : '' }}>Carro</option>
                         </select>
                     </div>
-    
+
                     <div class="mb-3">
                         <label for="tipo_taller" class="negrita">Tipo de Taller:</label>
-                        <select class="form-control" required="required" name="tipo_taller" id="tipo_taller">
-                            <option value="Mecanico" {{ $citas->tipo_taller == 'Mecanico' ? 'selected' : '' }}>
-                                Mecanico</option>
-                            <option value="Frenos" {{ $citas->tipo_taller == 'Frenos' ? 'selected' : '' }}>Frenos
+                        <select class="form-control" required="required" name="tipo_taller" id="tipo_taller"
+                            data-livesearch="true" onchange="buscarTaller()">
+                            <option value="" disabled>Seleccione el Tipo de taller</option>
+                            @foreach($tipo_taller as $tip_t)
+                            <option value="{{$tip_t->id}}" {{ $citas->tipo_taller == $tip_t->id ? 'selected' : '' }}>
+                                {{$tip_t->nombre}}
                             </option>
-                            <option value="Lamina y Pintura"
-                                {{ $citas->tipo_taller == 'Lamina y Pintura' ? 'selected' : '' }}>Lamina y Pintura
-                            </option>
-                            <option value="Aliniacion y Balanceo"
-                                {{ $citas->tipo_taller == 'Aliniacion y Balanceo' ? 'selected' : '' }}>Aliniacion y
-                                Balanceo</option>
-                            <option value="Transmisión" {{ $citas->tipo_taller == 'Transmisión' ? 'selected' : '' }}>
-                                Transmisión</option>
-                            <option value="Exostos" {{ $citas->tipo_taller == 'Exostos' ? 'selected' : '' }}>Exostos
-                            </option>
-                            <option value="Tren Delantero"
-                                {{ $citas->tipo_taller == 'Tren Delantero' ? 'selected' : '' }}>Tren Delantero
-                            </option>
-                            <option value="Electrico" {{ $citas->tipo_taller == 'Electrico' ? 'selected' : '' }}>
-                                Electrico</option>
-                            <option value="Multiservicio"
-                                {{ $citas->tipo_taller == 'Multiservicio' ? 'selected' : '' }}>Multiservicio</option>
+                            @endforeach
                         </select>
                     </div>
                     <div class="mb-3">
                         <label for="fecha" class="negrita">Fecha:</label>
                         <div>
-                            <input class="form-control"  required="required"
-                                name="fecha" type="date" id="fecha"
-                                value="{{ !empty($citas->fecha) ? $citas->fecha : '' }}">
+                            <input class="form-control" required="required" name="fecha" type="date" id="fecha"
+                                value="{{ $citas->fecha }}">
                         </div>
                     </div>
 
                     <div class="mb-3">
                         <label for="taller" class="negrita">Taller:</label>
-                        <select class="form-control" required="required" name="taller" id="taller">
-                            <option value="Motorasint" {{ $citas->taller == 'Motorasint' ? 'selected' : '' }}>
-                            Motorasint</option>
-                            <option value="Frenos" {{ $citas->taller == 'Pirupaint' ? 'selected' : '' }}>Pirupaint
+                        <select class="form-control" required="required" name="taller" id="talleres" data-livesearch="true">
+                            <option value="" disabled>Seleccione el taller</option>
+                            @foreach($talleres as $taller)
+                            <option value="{{$taller->id}}" {{ $citas->taller == $taller->id ? 'selected' : '' }}>
+                                {{$taller->nombre}}
                             </option>
-                            <option value="Lamina y Pintura"
-                                {{ $citas->taller == 'Laminados sas' ? 'selected' : '' }}>Laminados sas
-                            </option>
+                            @endforeach
                         </select>
                     </div>
 
@@ -151,7 +131,7 @@ role="alert"></div>
                     <a href="{{ route('cita.index') }}" class="btn btn-warning">Cancelar</a>
                     <br><br>
                 </form>
-                
+
                 @endif
             </div>
         </section>
