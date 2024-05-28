@@ -44,33 +44,31 @@
 
         <!-- Sidebar Start -->
         <div class="sidebar pe-4 pb-3">
-            <nav class="navbar bg-secondary navbar-dark">
-                <a href="index.html" class="navbar-brand mx-4 mb-3">
-                    <h3 class="text-primary"><i class="fa fa-user-edit me-2"></i>Motorgest</h3>
+            <nav class="navbar bg-primary navbar-dark">
+                <a href="index.html" class="d-flex navbar-brand mx-4 mb-3">
+                    <h2 class="text-primary">Motorgest</h2>
                 </a>
                 <div class="d-flex align-items-center ms-4 mb-4">
                     <div class="position-relative">
                     <img src="{{asset('uploads')}}/{{Auth::user()->avatar}}" width="60" class="imgresponsive">
                             <div class="bg-success rounded-circle border border-2 border-white position-absolute end-0 bottom-0 p-1"></div>
                     </div>
-                    <div class="ms-3">
-                        <h6 class="mb-0">{{ Auth::user()->name }}</h6>
+                    <div class="ms-3" style="color: rgba(0,122,204);">
+                        <h6 class="mb-0" style="color: #fff;">{{ Auth::user()->name }}</h6>
                         @foreach(Auth::user()->roles as $role)
                         <span>{{ $role->name }}</span>
                         @endforeach
                     </div>
+
                 </div>
                 <div class="navbar-nav w-100">
-                    <a href="index.html" class="nav-item nav-link active"><i class="fa fa-tachometer-alt me-2"></i>Inicio</a>
+                    <a href="{{url('cita')}}" class="nav-item nav-link active"><i class="fa fa-tachometer-alt me-2"></i>Inicio</a>
                     <div class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>Menu</a>
-                        <div class="dropdown-menu bg-transparent border-0">
-                            <a href="{{url('usuario')}}" class="dropdown-item">Usuarios</a>
-                            <a href="{{url('vehiculo')}}" class="dropdown-item">Vehiculos</a>
-                            <a href="{{url('taller')}}" class="dropdown-item">Talleres</a>
-                            <a href="{{url('mantenimiento')}}" class="dropdown-item">Mantenimiento</a>
-                        </div>
+
                     
+                        <a href="{{url('taller')}}" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Talleres</a>
+                    <a href="{{url('encuesta')}}" class="nav-item nav-link"><i class="fa fa-keyboard me-2"></i>Encuesta</a>
+                    <a href="{{url('mensaje')}}" class="nav-item nav-link"><i class="fa fa-table me-2"></i>Mensajes</a>
                     </div>
                     
                 </div>
@@ -80,9 +78,9 @@
 
 
         <!-- Content Start -->
-        <div class="content">
+        <div class="content" >
             <!-- Navbar Start -->
-            <nav class="navbar navbar-expand bg-secondary navbar-dark sticky-top px-4 py-0">
+            <nav class="navbar navbar-expand  navbar-dark sticky-top px-4 py-0"  style="background-color: rgba(0,122,204);">
                 <a href="index.html" class="navbar-brand d-flex d-lg-none me-4">
                     <h2 class="text-primary mb-0"><i class="fa fa-user-edit"></i></h2>
                 </a>
@@ -90,9 +88,9 @@
                     <i class="fa fa-bars"></i>
                 </a>
                 <form class="d-none d-md-flex ms-4">
-                    <input class="form-control bg-dark border-0" type="search" placeholder="Buscar">
+                    <input class="form-control border-0" type="search" placeholder="Buscar">
                 </form>
-                <div class="navbar-nav align-items-center ms-auto">
+                <div class="navbar-nav align-items-center ms-auto" >
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
                             <i class="fa fa-envelope me-lg-2"></i>
@@ -202,7 +200,7 @@
             <div class="container-fluid pt-4 px-4">
                 <div class="bg-secondary text-center rounded p-4">
                     <div class="d-flex align-items-center justify-content-between mb-4">
-                        <h6 class="mb-0">Vehiculo</h6>
+                        <h6 class="mb-0">TALLERES</h6>
                         <a href="">Show All</a>
                     </div>
                     @if(Session::has('message'))
@@ -222,14 +220,14 @@
                     <div class="col-sm-12 col-md-6 col-xl-4">
                         <div class="h-100 bg-secondary rounded p-4">
                             <div class="d-flex align-items-center justify-content-between mb-2">
-                                <h6 class="mb-0">Messages</h6>
-                                <a href="">Show All</a>
+                                <h6 class="mb-0">Mensajes</h6>
+                                <a href="">Mostrar Todo</a>
                             </div>
                             <div class="d-flex align-items-center border-bottom py-3">
                                 <img class="rounded-circle flex-shrink-0" src="img/user.jpg" alt="" style="width: 40px; height: 40px;">
                                 <div class="w-100 ms-3">
                                     <div class="d-flex w-100 justify-content-between">
-                                        <h6 class="mb-0">Jhon Doe</h6>
+                                        <h6 class="mb-0">Esteban Ramos</h6>
                                         <small>Hace 15 minutos</small>
                                     </div>
                                     <span>Short message goes here...</span>
@@ -239,8 +237,8 @@
                                 <img class="rounded-circle flex-shrink-0" src="img/user.jpg" alt="" style="width: 40px; height: 40px;">
                                 <div class="w-100 ms-3">
                                     <div class="d-flex w-100 justify-content-between">
-                                        <h6 class="mb-0">Jhon Doe</h6>
-                                        <small>Hace 15 minutos</small>
+                                        <h6 class="mb-0">Sebastian Guarin</h6>
+                                        <small>Hace 9 minutos</small>
                                     </div>
                                     <span>Short message goes here...</span>
                                 </div>
@@ -249,8 +247,8 @@
                                 <img class="rounded-circle flex-shrink-0" src="img/user.jpg" alt="" style="width: 40px; height: 40px;">
                                 <div class="w-100 ms-3">
                                     <div class="d-flex w-100 justify-content-between">
-                                        <h6 class="mb-0">Jhon Doe</h6>
-                                        <small>Hace 15 minutos</small>
+                                        <h6 class="mb-0">Jemssy Escobar</h6>
+                                        <small>Hace 10 minutos</small>
                                     </div>
                                     <span>Short message goes here...</span>
                                 </div>
@@ -259,7 +257,7 @@
                                 <img class="rounded-circle flex-shrink-0" src="img/user.jpg" alt="" style="width: 40px; height: 40px;">
                                 <div class="w-100 ms-3">
                                     <div class="d-flex w-100 justify-content-between">
-                                        <h6 class="mb-0">Jhon Doe</h6>
+                                        <h6 class="mb-0">Juan Manuel Rene</h6>
                                         <small>Hace 15 minutos</small>
                                     </div>
                                     <span>Short message goes here...</span>
@@ -270,72 +268,71 @@
                     <div class="col-sm-12 col-md-6 col-xl-4">
                         <div class="h-100 bg-secondary rounded p-4">
                             <div class="d-flex align-items-center justify-content-between mb-4">
-                                <h6 class="mb-0">Calender</h6>
-                                <a href="">Show All</a>
+                                <h6 class="mb-0">Calendario</h6>
+                                <a href="">Mostrar Todo</a>
                             </div>
                             <div id="calender"></div>
                         </div>
                     </div>
                     <div class="col-sm-12 col-md-6 col-xl-4">
-                        <div class="h-100 bg-secondary rounded p-4">
-                            <div class="d-flex align-items-center justify-content-between mb-4">
-                                <h6 class="mb-0">To Do List</h6>
-                                <a href="">Show All</a>
-                            </div>
-                            <div class="d-flex mb-2">
-                                <input class="form-control bg-dark border-0" type="text" placeholder="Enter task">
-                                <button type="button" class="btn btn-primary ms-2">Add</button>
-                            </div>
-                            <div class="d-flex align-items-center border-bottom py-2">
-                                <input class="form-check-input m-0" type="checkbox">
-                                <div class="w-100 ms-3">
-                                    <div class="d-flex w-100 align-items-center justify-content-between">
-                                        <span>Short task goes here...</span>
-                                        <button class="btn btn-sm"><i class="fa fa-times"></i></button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="d-flex align-items-center border-bottom py-2">
-                                <input class="form-check-input m-0" type="checkbox">
-                                <div class="w-100 ms-3">
-                                    <div class="d-flex w-100 align-items-center justify-content-between">
-                                        <span>Short task goes here...</span>
-                                        <button class="btn btn-sm"><i class="fa fa-times"></i></button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="d-flex align-items-center border-bottom py-2">
-                                <input class="form-check-input m-0" type="checkbox" checked>
-                                <div class="w-100 ms-3">
-                                    <div class="d-flex w-100 align-items-center justify-content-between">
-                                        <span><del>Short task goes here...</del></span>
-                                        <button class="btn btn-sm text-primary"><i class="fa fa-times"></i></button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="d-flex align-items-center border-bottom py-2">
-                                <input class="form-check-input m-0" type="checkbox">
-                                <div class="w-100 ms-3">
-                                    <div class="d-flex w-100 align-items-center justify-content-between">
-                                        <span>Short task goes here...</span>
-                                        <button class="btn btn-sm"><i class="fa fa-times"></i></button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="d-flex align-items-center pt-2">
-                                <input class="form-check-input m-0" type="checkbox">
-                                <div class="w-100 ms-3">
-                                    <div class="d-flex w-100 align-items-center justify-content-between">
-                                        <span>Short task goes here...</span>
-                                        <button class="btn btn-sm"><i class="fa fa-times"></i></button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+    <div class="h-100 bg-secondary rounded p-4">
+        <div class="d-flex align-items-center justify-content-between mb-4">
+            <h6 class="mb-0">Lista de Tareas</h6>
+            <a href="">Mostrar Todo</a>
+        </div>
+        <div class="d-flex mb-2">
+            <input class="form-control bg-dark border-0" type="text" placeholder="Ingresar tarea">
+            <button type="button" class="btn btn-primary ms-2">Agregar</button>
+        </div>
+        <div class="d-flex align-items-center border-bottom py-2">
+            <input class="form-check-input m-0" type="checkbox">
+            <div class="w-100 ms-3">
+                <div class="d-flex w-100 align-items-center justify-content-between">
+                    <span>Tarea corta va aquí...</span>
+                    <button class="btn btn-sm"><i class="fa fa-times"></i></button>
                 </div>
             </div>
-            <!-- Widgets End -->
+        </div>
+        <div class="d-flex align-items-center border-bottom py-2">
+            <input class="form-check-input m-0" type="checkbox">
+            <div class="w-100 ms-3">
+                <div class="d-flex w-100 align-items-center justify-content-between">
+                    <span>Tarea corta va aquí...</span>
+                    <button class="btn btn-sm"><i class="fa fa-times"></i></button>
+                </div>
+            </div>
+        </div>
+        <div class="d-flex align-items-center border-bottom py-2">
+            <input class="form-check-input m-0" type="checkbox" checked>
+            <div class="w-100 ms-3">
+                <div class="d-flex w-100 align-items-center justify-content-between">
+                    <span><del>Tarea corta va aquí...</del></span>
+                    <button class="btn btn-sm text-primary"><i class="fa fa-times"></i></button>
+                </div>
+            </div>
+        </div>
+        <div class="d-flex align-items-center border-bottom py-2">
+            <input class="form-check-input m-0" type="checkbox">
+            <div class="w-100 ms-3">
+                <div class="d-flex w-100 align-items-center justify-content-between">
+                    <span>Tarea corta va aquí...</span>
+                    <button class="btn btn-sm"><i class="fa fa-times"></i></button>
+                </div>
+            </div>
+        </div>
+        <div class="d-flex align-items-center pt-2">
+            <input class="form-check-input m-0" type="checkbox">
+            <div class="w-100 ms-3">
+                <div class="d-flex w-100 align-items-center justify-content-between">
+                    <span>Tarea corta va aquí...</span>
+                    <button class="btn btn-sm"><i class="fa fa-times"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
 
 
             <!-- Footer Start -->

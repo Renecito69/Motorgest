@@ -32,11 +32,6 @@ class VehiculoController extends Controller
 
     public function create()
     {
-
-        //Nuevooooooooooooooooooooooooooo
-        //$request->user()->authorizeRoles('admin');
-        //Nuevooooooooooooooooooooooooo
-
         $vehiculos = Vehiculo::all();
         return view('vehiculo.create', compact('vehiculos'));
     }
@@ -60,7 +55,7 @@ class VehiculoController extends Controller
         
         $vehiculos->save();
 
-        return redirect('vehiculo')->with('message', 'Vehículo guardado satisfactoriamente.');
+        return redirect('cita')->with('message', 'Vehículo guardado satisfactoriamente.');
     }
 
     public function show(string $id)
@@ -97,19 +92,17 @@ class VehiculoController extends Controller
         $vehiculos->save();
 
         Session::flash('message', 'Editado Satisfactoriamente !');
-        return Redirect::to('vehiculo');
-
-
+        return Redirect::to('cita');
      }
 
     public function destroy(string $id)
     {
         $vehiculos = Vehiculo::find($id);
         if (!$vehiculos) {
-            return redirect('vehiculo')->with('error', 'Vehículo no encontrado.');
+            return redirect('cita')->with('error', 'Vehículo no encontrado.');
         }
         $vehiculos->delete();
 
-        return redirect('vehiculo')->with('message', 'Vehículo eliminado satisfactoriamente.');
+        return redirect('cita')->with('message', 'Vehículo eliminado satisfactoriamente.');
     }
 }

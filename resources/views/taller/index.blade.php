@@ -9,7 +9,6 @@
             <th>Runt</th>
             <th>Camara Comercio</th>
             <th>Direccion</th>
-            <th>Tipo Taller</th>
         </tr>
     </thead>
     <tbody>
@@ -18,7 +17,6 @@
             <td class="v-align-middle">{{$taller->runt}}</td>
             <td class="v-align-middle">{{$taller->camara_comercio}}</td>
             <td class="v-align-middle">{{$taller->direccion}}</td>
-            <td class="v-align-middle">{{$taller->tipo_taller}}</td>
             <td class="v-align-middle">
                 <form action="" method="POST" class="form-horizontal" role="form">
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">

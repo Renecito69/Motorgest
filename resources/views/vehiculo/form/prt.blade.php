@@ -1,4 +1,4 @@
-@extends('layouts.mainv')
+@extends('layouts.main')
 
 @section('content_vehiculo')
 <div class="row">
@@ -73,15 +73,16 @@
                         </div>
                     </div>
                     <div class="mb-3">
-                        <label for="tipo_vehiculos" class="negrita">Tipo de Vehículo:</label>
-                        <div>
-                            <input class="form-control" placeholder="Sedán" required="required" name="tipo_vehiculo" type="text"
-                                id="tipo_vehiculo" value="{{ !empty($vehiculos->tipo_vehiculo) ? $vehiculos->tipo_vehiculo : '' }}">
-                        </div>
+                        <label for="tipo_vehiculo" class="negrita">Tipo de Vehiculo:</label>
+                        <select class="form-control" required="required" name="tipo_vehiculo" id="tipo_vehiculo">
+                            <option value="" disabled selected>Seleccione el Tipo de Vehiculo</option>
+                            <option value="moto">Moto</option>
+                            <option value="frenos">Carro</option>
+                        </select>
                     </div>
 
                     <button type="submit" class="btn btn-info">Guardar</button>
-                    <a href="{{ route('vehiculo.index') }}" class="btn btn-warning">Cancelar</a>
+                    <a href="{{ route('cita.index') }}" class="btn btn-warning">Cancelar</a>
                     <br><br>
                 </form>
             @else
@@ -153,15 +154,15 @@
                         </div>
                     </div>
                     <div class="mb-3">
-                        <label for="tipo_vehiculos" class="negrita">Tipo de Vehículo:</label>
-                        <div>
-                            <input class="form-control" placeholder="Sedán" required="required" name="tipo_vehiculo" type="text"
-                                id="tipo_vehiculo" value="{{ !empty($vehiculos->tipo_vehiculo) ? $vehiculos->tipo_vehiculo : '' }}">
-                        </div>
+                        <label for="tipo_vehiculo" class="negrita">Tipo de Vehiculo:</label>
+                        <select class="form-control" required="required" name="tipo_vehiculo" id="tipo_vehiculo">
+                            <option value="Moto" {{ $vehiculos->tipo_vehiculo == 'Moto' ? 'selected' : '' }}>Moto</option>
+                            <option value="Carro" {{ $vehiculos->tipo_vehiculo == 'Carro' ? 'selected' : '' }}>Carro</option>
+                        </select>
                     </div>
 
                     <button type="submit" class="btn btn-info">Guardar</button>
-                    <a href="{{ route('vehiculo.index') }}" class="btn btn-warning">Cancelar</a>
+                    <a href="{{ route('cita.index') }}" class="btn btn-warning">Cancelar</a>
                     <br><br>
                 </form>
             @endif

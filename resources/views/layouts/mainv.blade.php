@@ -61,23 +61,13 @@
                     </div>
                 </div>
                 <div class="navbar-nav w-100">
-                    <a href="index.html" class="nav-item nav-link active"><i class="fa fa-tachometer-alt me-2"></i>Inicio</a>
+                    <a href="{{url('cita')}}" class="nav-item nav-link active"><i class="fa fa-tachometer-alt me-2"></i>Inicio</a>
                     <div class="nav-item dropdown">
 
-        
-                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>Menu</a>
-                        <div class="dropdown-menu bg-transparent border-0">
-                            <a href="{{url('usuario')}}" class="dropdown-item">Usuarios</a>
-                            <a href="{{url('vehiculo')}}" class="dropdown-item">Vehiculos</a>
-                            <a href="{{url('taller')}}" class="dropdown-item">Talleres</a>
-                            <a href="{{url('mantenimiento')}}" class="dropdown-item">Mantenimiento</a>
-                            <a href="{{url('cita')}}" class="dropdown-item">cita</a>
-                        </div>
                     
-                        <a href="widget.html" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Widgets</a>
-                    <a href="form.html" class="nav-item nav-link"><i class="fa fa-keyboard me-2"></i>Forms</a>
-                    <a href="table.html" class="nav-item nav-link"><i class="fa fa-table me-2"></i>Tables</a>
-                    <a href="chart.html" class="nav-item nav-link"><i class="fa fa-chart-bar me-2"></i>Charts</a>
+                        <a href="{{url('taller')}}" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Talleres</a>
+                    <a href="{{url('encuesta')}}" class="nav-item nav-link"><i class="fa fa-keyboard me-2"></i>Encuesta</a>
+                    <a href="{{url('mensaje')}}" class="nav-item nav-link"><i class="fa fa-table me-2"></i>Mensajes</a>
                     </div>
                     
                 </div>
@@ -209,7 +199,7 @@
             <div class="container-fluid pt-4 px-4">
                 <div class="bg-secondary text-center rounded p-4">
                     <div class="d-flex align-items-center justify-content-between mb-4">
-                        <h6 class="mb-0">Vehiculo</h6>
+                        <h6 class="mb-0">ENCUESTA</h6>
                         <a href=""></a>
                     </div>
                     @if(Session::has('message'))
@@ -218,7 +208,7 @@
                             </div>
                         @endif
 
-                       @yield('content_vehiculo')
+                       @yield('encuesta')
             </div>
             <!-- Recent Sales End -->
 
@@ -229,14 +219,14 @@
                     <div class="col-sm-12 col-md-6 col-xl-4">
                         <div class="h-100 bg-secondary rounded p-4">
                             <div class="d-flex align-items-center justify-content-between mb-2">
-                                <h6 class="mb-0">Messages</h6>
-                                <a href="">Show All</a>
+                                <h6 class="mb-0">Mensajes</h6>
+                                <a href="">Mostrar Todo</a>
                             </div>
                             <div class="d-flex align-items-center border-bottom py-3">
                                 <img class="rounded-circle flex-shrink-0" src="img/user.jpg" alt="" style="width: 40px; height: 40px;">
                                 <div class="w-100 ms-3">
                                     <div class="d-flex w-100 justify-content-between">
-                                        <h6 class="mb-0">Jhon Doe</h6>
+                                        <h6 class="mb-0">Esteban Ramos</h6>
                                         <small>Hace 15 minutos</small>
                                     </div>
                                     <span>Short message goes here...</span>
@@ -246,8 +236,8 @@
                                 <img class="rounded-circle flex-shrink-0" src="img/user.jpg" alt="" style="width: 40px; height: 40px;">
                                 <div class="w-100 ms-3">
                                     <div class="d-flex w-100 justify-content-between">
-                                        <h6 class="mb-0">Jhon Doe</h6>
-                                        <small>Hace 15 minutos</small>
+                                        <h6 class="mb-0">Sebastian Guarin</h6>
+                                        <small>Hace 9 minutos</small>
                                     </div>
                                     <span>Short message goes here...</span>
                                 </div>
@@ -256,8 +246,8 @@
                                 <img class="rounded-circle flex-shrink-0" src="img/user.jpg" alt="" style="width: 40px; height: 40px;">
                                 <div class="w-100 ms-3">
                                     <div class="d-flex w-100 justify-content-between">
-                                        <h6 class="mb-0">Jhon Doe</h6>
-                                        <small>Hace 15 minutos</small>
+                                        <h6 class="mb-0">Jemssy Escobar</h6>
+                                        <small>Hace 10 minutos</small>
                                     </div>
                                     <span>Short message goes here...</span>
                                 </div>
@@ -266,7 +256,7 @@
                                 <img class="rounded-circle flex-shrink-0" src="img/user.jpg" alt="" style="width: 40px; height: 40px;">
                                 <div class="w-100 ms-3">
                                     <div class="d-flex w-100 justify-content-between">
-                                        <h6 class="mb-0">Jhon Doe</h6>
+                                        <h6 class="mb-0">Juan Manuel Rene</h6>
                                         <small>Hace 15 minutos</small>
                                     </div>
                                     <span>Short message goes here...</span>
@@ -277,72 +267,74 @@
                     <div class="col-sm-12 col-md-6 col-xl-4">
                         <div class="h-100 bg-secondary rounded p-4">
                             <div class="d-flex align-items-center justify-content-between mb-4">
-                                <h6 class="mb-0">Calender</h6>
-                                <a href="">Show All</a>
+                                <h6 class="mb-0">Calendario</h6>
+                                <a href="">Mostrar Todo</a>
                             </div>
                             <div id="calender"></div>
                         </div>
                     </div>
                     <div class="col-sm-12 col-md-6 col-xl-4">
-                        <div class="h-100 bg-secondary rounded p-4">
-                            <div class="d-flex align-items-center justify-content-between mb-4">
-                                <h6 class="mb-0">To Do List</h6>
-                                <a href="">Show All</a>
-                            </div>
-                            <div class="d-flex mb-2">
-                                <input class="form-control bg-dark border-0" type="text" placeholder="Enter task">
-                                <button type="button" class="btn btn-primary ms-2">Add</button>
-                            </div>
-                            <div class="d-flex align-items-center border-bottom py-2">
-                                <input class="form-check-input m-0" type="checkbox">
-                                <div class="w-100 ms-3">
-                                    <div class="d-flex w-100 align-items-center justify-content-between">
-                                        <span>Short task goes here...</span>
-                                        <button class="btn btn-sm"><i class="fa fa-times"></i></button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="d-flex align-items-center border-bottom py-2">
-                                <input class="form-check-input m-0" type="checkbox">
-                                <div class="w-100 ms-3">
-                                    <div class="d-flex w-100 align-items-center justify-content-between">
-                                        <span>Short task goes here...</span>
-                                        <button class="btn btn-sm"><i class="fa fa-times"></i></button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="d-flex align-items-center border-bottom py-2">
-                                <input class="form-check-input m-0" type="checkbox" checked>
-                                <div class="w-100 ms-3">
-                                    <div class="d-flex w-100 align-items-center justify-content-between">
-                                        <span><del>Short task goes here...</del></span>
-                                        <button class="btn btn-sm text-primary"><i class="fa fa-times"></i></button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="d-flex align-items-center border-bottom py-2">
-                                <input class="form-check-input m-0" type="checkbox">
-                                <div class="w-100 ms-3">
-                                    <div class="d-flex w-100 align-items-center justify-content-between">
-                                        <span>Short task goes here...</span>
-                                        <button class="btn btn-sm"><i class="fa fa-times"></i></button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="d-flex align-items-center pt-2">
-                                <input class="form-check-input m-0" type="checkbox">
-                                <div class="w-100 ms-3">
-                                    <div class="d-flex w-100 align-items-center justify-content-between">
-                                        <span>Short task goes here...</span>
-                                        <button class="btn btn-sm"><i class="fa fa-times"></i></button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+    <div class="h-100 bg-secondary rounded p-4">
+        <div class="d-flex align-items-center justify-content-between mb-4">
+            <h6 class="mb-0">Lista de Tareas</h6>
+            <a href="">Mostrar Todo</a>
+        </div>
+        <div class="d-flex mb-2">
+            <input class="form-control bg-dark border-0" type="text" placeholder="Ingresar tarea">
+            <button type="button" class="btn btn-primary ms-2">Agregar</button>
+        </div>
+        <div class="d-flex align-items-center border-bottom py-2">
+            <input class="form-check-input m-0" type="checkbox">
+            <div class="w-100 ms-3">
+                <div class="d-flex w-100 align-items-center justify-content-between">
+                    <span>Tarea corta va aquí...</span>
+                    <button class="btn btn-sm"><i class="fa fa-times"></i></button>
+                </div>
+            </div>
+        </div>
+        <div class="d-flex align-items-center border-bottom py-2">
+            <input class="form-check-input m-0" type="checkbox">
+            <div class="w-100 ms-3">
+                <div class="d-flex w-100 align-items-center justify-content-between">
+                    <span>Tarea corta va aquí...</span>
+                    <button class="btn btn-sm"><i class="fa fa-times"></i></button>
+                </div>
+            </div>
+        </div>
+        <div class="d-flex align-items-center border-bottom py-2">
+            <input class="form-check-input m-0" type="checkbox" checked>
+            <div class="w-100 ms-3">
+                <div class="d-flex w-100 align-items-center justify-content-between">
+                    <span><del>Tarea corta va aquí...</del></span>
+                    <button class="btn btn-sm text-primary"><i class="fa fa-times"></i></button>
+                </div>
+            </div>
+        </div>
+        <div class="d-flex align-items-center border-bottom py-2">
+            <input class="form-check-input m-0" type="checkbox">
+            <div class="w-100 ms-3">
+                <div class="d-flex w-100 align-items-center justify-content-between">
+                    <span>Tarea corta va aquí...</span>
+                    <button class="btn btn-sm"><i class="fa fa-times"></i></button>
+                </div>
+            </div>
+        </div>
+        <div class="d-flex align-items-center pt-2">
+            <input class="form-check-input m-0" type="checkbox">
+            <div class="w-100 ms-3">
+                <div class="d-flex w-100 align-items-center justify-content-between">
+                    <span>Tarea corta va aquí...</span>
+                    <button class="btn btn-sm"><i class="fa fa-times"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
                 </div>
             </div>
             <!-- Widgets End -->
+
 
 
             <!-- Footer Start -->

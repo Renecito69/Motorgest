@@ -1,4 +1,4 @@
-@extends('layouts.mainv')
+@extends('layouts.main')
 @section('content_vehiculo')
 
 <div class="panel-body">

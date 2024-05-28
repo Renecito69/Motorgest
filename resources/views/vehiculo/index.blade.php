@@ -1,4 +1,4 @@
-@extends('layouts.mainv')
+@extends('layouts.main')
 @section('content_vehiculo')
 <div class="panel-body">
     <a href="{{ route('vehiculo.create') }}" class="btn btn-primary mb-3">Agregar Vehículo</a>

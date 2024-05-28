@@ -1,41 +1,39 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\EncuestaController;
+use App\Http\Controllers\PdfController;
 
-
+// Routes for authentication
 Route::get('/', function () {
     return view('auth.login');
 });
 
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+// Resource routes
 Route::resource('motorgest', 'App\Http\Controllers\HomeController');
 Route::resource('vehiculo', 'App\Http\Controllers\VehiculoController');
 Route::resource('taller', 'App\Http\Controllers\TallerController');
 Route::resource('cita', 'App\Http\Controllers\CitaController');
 
-Route::get('/obtenerTalleresPorTipo', 
-'App\Http\Controllers\CitaController@buscarTaller');
+// Custom routes
+Route::get('/obtenerTalleresPorTipo', 'App\Http\Controllers\CitaController@buscarTaller');
+Route::get('/validarFecha', 'App\Http\Controllers\CitaController@validarFecha');
 
-Route::get('/validarFecha', 
-'App\Http\Controllers\CitaController@validarFecha');
-
+// Routes for admin users
 Route::middleware(['auth', 'role:admin'])->group(function () {
-    Route::resource('usuario', 'App\Http\Controllers\usuarioController');
-   
-   });
+    Route::resource('usuario', 'App\Http\Controllers\UsuarioController');
+});
 
-Route::resource('mantenimiento', 'App\Http\Controllers\mantenimientoController');
-Route::get('imprimirVehiculos','App\http\Controllers\PdfController@imprimirVehiculos')->name('imprimirVehiculos');
+// Other resource routes
+Route::resource('mantenimiento', 'App\Http\Controllers\MantenimientoController');
+Route::get('imprimirVehiculos', [PdfController::class, 'imprimirVehiculos'])->name('imprimirVehiculos');
+
+// Route for encuesta
+Route::get('/encuesta', [EncuestaController::class, 'show']);
 
 
-
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::resource('mensaje', 'App\Http\Controllers\MensajeController');

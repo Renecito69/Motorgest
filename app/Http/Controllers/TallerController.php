@@ -37,7 +37,7 @@ class tallerController extends Controller
         $talleres->runt = $request->runt;
         $talleres->camara_comercio = $request->camara_comercio;
         $talleres->direccion = $request->direccion;
-        $talleres->tipo_taller = $request->tipo_taller;
+        $talleres->tipo_taller_id = $request->tipo_taller_id;
 
         $talleres->created_at = (new DateTime)->getTimestamp();
     
@@ -69,7 +69,7 @@ class tallerController extends Controller
         $talleres->runt = $request->runt;
         $talleres->camara_comercio = $request->camara_comercio;
         $talleres->direccion = $request->direccion;
-        $talleres->tipo_taller = $request->tipo_taller;
+        $talleres->tipo_taller_id = $request->tipo_taller;
         
 
         $talleres->updated_at = (new DateTime)->getTimestamp();
